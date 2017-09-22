@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/bin/env python
 
 import json
+import abjad
 
 header_file = open("include/header.ly", "r")
 ly_header = header_file.read()
@@ -23,9 +24,16 @@ for chord in data["chords"]:
         chordparts.append("")
     chrds += "  %s1:%s\n" % (chordparts[0], chordparts[1])
     
+    if "notes" not in chord:
+        chord["notes"] = ""
+        scale = abjad.tonalanalysistools.Scale((str(chordparts[0]), 'major'))
+        for fret in [fret for fret in chord["frets"] if fret["fret"] != "x"]:
+            chord["notes"] += "%s " % scale.scale_degree_to_named_pitch_class(str(fret["scale_tone"])).name
+
     breakstr = ""
     if chordno % 10 == 0:
         breakstr = "\\break"
+
     m += "  <%s>1%s\n" % (chord["notes"], breakstr)
 
     fd += "  s1^\\markup {\n    \\fret-diagram-verbose #`(\n"

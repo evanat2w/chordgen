@@ -1,15 +1,14 @@
 { "chords": [
   {
     "name": "d:m",
-    "notes": "d' a' d'' f' a''",
     "barres": [ "5 1 5" ],
     "frets": [
        { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "5", "scale_tone": "1" },
-       { "string": "4", "fret": "7", "scale_tone": "5" },
-       { "string": "3", "fret": "7", "scale_tone": "1" },
-       { "string": "2", "fret": "6", "scale_tone": "b3" },
-       { "string": "1", "fret": "5", "scale_tone": "5" }
+       { "string": "5", "fret": "5", "note": "d'", "scale_tone": "1" },
+       { "string": "4", "fret": "7", "note": "a'", "scale_tone": "5" },
+       { "string": "3", "fret": "7", "note": "d''", "scale_tone": "1" },
+       { "string": "2", "fret": "6", "note": "f''", "scale_tone": "b3" },
+       { "string": "1", "fret": "5", "note": "a''", "scale_tone": "5" }
     ]
   }, {
     "name": "a:m",
