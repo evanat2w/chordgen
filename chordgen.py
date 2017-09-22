@@ -9,10 +9,6 @@ def get_octave(fret, string, note_name):
     note_number = string_map[str(string)] + int(fret)
     if note_name.startswith("c") or note_name == "dff":
         note_number += 1
-    if note_name.startswith("cf"):
-        note_number += 1
-    if note_name.startswith("cff"):
-        note_number += 1
     return "'" * int(note_number // 12.0)
 
 header_file = open("include/header.ly", "r")
