@@ -14,3 +14,11 @@
      #{
        \markup \concat { \raise #0.3 \fontsize #-5 \sharp $text }
      #}))
+
+chExceptionMusic = {
+    <c e gs d>1-\markup { "+(add9)" }
+}
+
+chExceptions = #( append
+  ( sequential-music-to-chord-exceptions chExceptionMusic #t)
+  ignatzekExceptions)

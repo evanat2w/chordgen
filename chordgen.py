@@ -85,6 +85,6 @@ for chord in data["chords"]:
 
     m += "  <%s>1%s\n" % (chord_notes, breakstr)
 
-print "%s\nchrds =\n\\chordmode {\n%s}\n\n" % (ly_header, chrds)
+print "%s\nchrds =\n\\chordmode {\n  \\set chordNameExceptions = #chExceptions\n%s}\n\n" % (ly_header, chrds)
 print "m =\n\\absolute {\n  \\override Score.BarNumber.break-visibility = ##(#f #f #f)\n  \\clef \"treble\"\n%s}\n\n" % m 
 print "fd = {\n%s}\n\n%s" % (fd, ly_footer)
