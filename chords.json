@@ -2,163 +2,57 @@
   {
     "name": "d:m",
     "barres": [ "5 1 5" ],
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "5", "scale_tone": "1" },
-       { "string": "4", "fret": "7", "scale_tone": "5" },
-       { "string": "3", "fret": "7", "scale_tone": "1" },
-       { "string": "2", "fret": "6", "scale_tone": "b3" },
-       { "string": "1", "fret": "5", "scale_tone": "5" }
-    ]
+    "frets": "x;5-1;7-5;7-1;6-b3;5-5"
   }, {
     "name": "a:m",
     "barres": [ "6 1 5" ],
-    "frets": [
-       { "string": "6", "fret": "5", "scale_tone": "1" },
-       { "string": "5", "fret": "7", "scale_tone": "5" },
-       { "string": "4", "fret": "7", "scale_tone": "1" },
-       { "string": "3", "fret": "5", "scale_tone": "b3" },
-       { "string": "2", "fret": "5", "scale_tone": "5" },
-       { "string": "1", "fret": "5", "scale_tone": "1" }
-    ]
+    "frets": "5-1;7-5;7-1;5-b3;5-5;5-1"
   }, {
     "name": "e:aug",
     "barres": [ "3 2 5" ],
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "7", "scale_tone": "1" },
-       { "string": "4", "fret": "6", "scale_tone": "3" },
-       { "string": "3", "fret": "5", "scale_tone": "#5" },
-       { "string": "2", "fret": "5", "scale_tone": "1" },
-       { "string": "1", "fret": "x" }
-    ]
+    "frets": "x;7-1;6-3;5-#5;5-1;x"
   }, {
     "name": "a:7",
     "barres": [ "6 1 5" ],
-    "frets": [
-       { "string": "6", "fret": "5", "scale_tone": "1" },
-       { "string": "5", "fret": "7", "scale_tone": "5" },
-       { "string": "4", "fret": "5", "scale_tone": "b7" },
-       { "string": "3", "fret": "6", "scale_tone": "3" },
-       { "string": "2", "fret": "5", "scale_tone": "5" },
-       { "string": "2", "fret": "8", "scale_tone": "b7", "optional": true },
-       { "string": "1", "fret": "5", "scale_tone": "1", "optional": true }
-    ]
+    "frets": "5-1;7-5;5-b7;6-3;5-5,8-ob7;5-o1"
   }, {
     "name": "b:7",
     "barres": [ "5 1 2" ],
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "2", "scale_tone": "1" },
-       { "string": "4", "fret": "4", "scale_tone": "5" },
-       { "string": "3", "fret": "2", "scale_tone": "b7" },
-       { "string": "2", "fret": "4", "scale_tone": "3" },
-       { "string": "1", "fret": "2", "scale_tone": "5", "optional": true }
-    ]
+    "frets": "x;2-1;4-5;2-b7;4-3;2-o5"
   }, {
     "name": "c:7",
-    "frets": [
-       { "string": "6", "fret": "3", "scale_tone": "5", "optional": true },
-       { "string": "5", "fret": "3", "scale_tone": "1", "optional": true },
-       { "string": "4", "fret": "2", "scale_tone": "3" },
-       { "string": "3", "fret": "3", "scale_tone": "b7" },
-       { "string": "2", "fret": "1", "scale_tone": "1" },
-       { "string": "1", "fret": "x" }
-    ]
+    "frets": "3-o5;3-o1;2-3;3-b7;1-1;x"
   }, {
     "name": "g:dim7",
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "bb7" },
-       { "string": "3", "fret": "3", "scale_tone": "b3" },
-       { "string": "2", "fret": "2", "scale_tone": "b5" },
-       { "string": "1", "fret": "3", "scale_tone": "1" }
-    ]
+    "frets": "x;x;2-bb7;3-b3;2-b5;3-1"
   }, {
     "name": "e:dim7",
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "1" },
-       { "string": "3", "fret": "3", "scale_tone": "b5" },
-       { "string": "2", "fret": "2", "scale_tone": "bb7" },
-       { "string": "1", "fret": "3", "scale_tone": "b3" }
-    ]
+    "frets": "x;x;2-1;3-b5;2-bb7;3-b3"
   }, {
     "name": "bf:dim7",
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "b5" },
-       { "string": "3", "fret": "3", "scale_tone": "1" },
-       { "string": "2", "fret": "2", "scale_tone": "b3" },
-       { "string": "1", "fret": "3", "scale_tone": "bb7" }
-    ]
+    "frets": "x;x;2-b5;3-1;2-b3;3-bb7"
   }, {
     "name": "cs:dim7",
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "b3" },
-       { "string": "3", "fret": "3", "scale_tone": "bb7" },
-       { "string": "2", "fret": "2", "scale_tone": "1" },
-       { "string": "1", "fret": "3", "scale_tone": "b5" }
-    ]
+    "frets": "x;x;2-b3;3-bb7;2-1;3-b5"
   }, {
     "name": "d",
     "barres": [ "3 1 2" ],
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "5", "scale_tone": "1" },
-       { "string": "4", "fret": "4", "scale_tone": "3" },
-       { "string": "3", "fret": "2", "scale_tone": "5" },
-       { "string": "2", "fret": "3", "scale_tone": "1" },
-       { "string": "1", "fret": "2", "scale_tone": "3", "optional": true }
-    ]
+    "frets": "x;5-1;4-3;2-5;3-1;2-o3"
   }, {
     "name": "d",
     "barres": [ "4 2 7" ],
-    "frets": [
-       { "string": "6", "fret": "5", "scale_tone": "5", "optional": true },
-       { "string": "5", "fret": "5", "scale_tone": "1" },
-       { "string": "4", "fret": "7", "scale_tone": "5" },
-       { "string": "3", "fret": "7", "scale_tone": "1" },
-       { "string": "2", "fret": "7", "scale_tone": "3" },
-       { "string": "1", "fret": "x" }
-    ]
+    "frets": "5-o5;5-1;7-5;7-1;7-3;x"
   }, {
     "name": "d",
     "barres": [ "6 1 10" ],
-    "frets": [
-       { "string": "6", "fret": "10", "scale_tone": "1" },
-       { "string": "5", "fret": "12", "scale_tone": "5" },
-       { "string": "4", "fret": "12", "scale_tone": "1" },
-       { "string": "3", "fret": "11", "scale_tone": "3" },
-       { "string": "2", "fret": "10", "scale_tone": "5" },
-       { "string": "1", "fret": "10", "scale_tone": "1", "optional": true }
-    ]
+    "frets": "10-1;12-5;12-1;11-3;10-5;10-o1"
   }, {
     "name": "g:m7",
     "barres": [ "6 1 3" ],
-    "frets": [
-       { "string": "6", "fret": "3", "scale_tone": "1" },
-       { "string": "5", "fret": "5", "scale_tone": "5" },
-       { "string": "4", "fret": "3", "scale_tone": "b7" },
-       { "string": "3", "fret": "3", "scale_tone": "b3" },
-       { "string": "2", "fret": "3", "scale_tone": "5" },
-       { "string": "1", "fret": "3", "scale_tone": "1", "optional": true }
-    ]
+    "frets": "3-1;5-5;3-b7;3-b3;3-5;3-o1"
   }, {
     "name": "c:9",
     "barres": [ "3 1 3" ],
-    "frets": [
-       { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "3", "scale_tone": "1" },
-       { "string": "4", "fret": "2", "scale_tone": "3" },
-       { "string": "3", "fret": "3", "scale_tone": "b7" },
-       { "string": "2", "fret": "3", "scale_tone": "9" },
-       { "string": "1", "fret": "3", "scale_tone": "5" }
-    ]
+    "frets": "x;3-1;2-3;3-b7;3-9;3-5"
   }
 ] }

@@ -3,13 +3,13 @@
 import json
 import abjad
 
-string_map = { "6": 7, "5": 12, "4": 17, "3": 22, "2": 26, "1": 31 }
+string_map = { "6": 3, "5": 8, "4": 13, "3": 18, "2": 22, "1": 27 }
 
 def get_octave(fret, string, note_name):
-    note_number = string_map[string] + int(fret)
-    if note_name == "c":
+    note_number = string_map[str(string)] + int(fret)
+    if note_name.startswith("c"):
         note_number += 1
-    return "'" * int((note_number - 4) // 12.0)
+    return "'" * int(note_number // 12.0)
 
 header_file = open("include/header.ly", "r")
 ly_header = header_file.read()
@@ -43,28 +43,39 @@ for chord in data["chords"]:
         for barre in chord["barres"]:
             fd += "      (barre %s)\n" % barre
 
-    for fret in chord["frets"]:
-        if fret["fret"] == "x":
-            fd += "      (mute %s)\n" % fret["string"]
-            continue
+    string_no = 7
+    for frets in chord["frets"].split(";"):
+        string_no -= 1
+        for fret in frets.split(","):
+            optional = False
 
-        fd += "      (place-fret %s %s ,#{ \\markup \\fontsize #-3 " % (fret["string"], fret["fret"])
+            if fret == "x":
+                fd += "      (mute %d)\n" % string_no
+                continue
 
-        while fret["scale_tone"][0] not in "0123456789":
-            if fret["scale_tone"].startswith("b"):
-                fd += "\\with-flat "
-            if fret["scale_tone"].startswith("#"):
-                fd += "\\with-sharp "
-            fret["scale_tone"] = fret["scale_tone"][1:]
+            (fret_no, scale_tone) = fret.split("-")
+            if scale_tone.startswith("o"):
+                optional = True
+                scale_tone = scale_tone[1:]
 
-        color = "red" if fret["scale_tone"] == "1" else ""
-        paren = "parenthesized" if "optional" in fret else ""
+            next_note = scale.scale_degree_to_named_pitch_class(str(scale_tone))
 
-        fd += "%s #} %s %s )\n" % (fret["scale_tone"], color, paren)
+            fd += "      (place-fret %d %s ,#{ \\markup \\fontsize #-3 " % (string_no, fret_no)
 
-        next_note = scale.scale_degree_to_named_pitch_class(str(fret["scale_tone"]))
-        paren = "\\parenthesize " if "optional" in fret else ""
-        chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret["fret"], fret["string"], next_note.name))
+            while scale_tone[0] not in "0123456789":
+                if scale_tone.startswith("b"):
+                    fd += "\\with-flat "
+                if scale_tone.startswith("#"):
+                    fd += "\\with-sharp "
+                scale_tone = scale_tone[1:]
+
+            color = "red" if scale_tone == "1" else ""
+            paren = "parenthesized" if optional else ""
+
+            fd += "%s #} %s %s )\n" % (scale_tone, color, paren)
+
+            paren = "\\parenthesize " if optional else ""
+            chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret_no, string_no, next_note.name))
 
     fd += "  )\n}\n\n"
 
