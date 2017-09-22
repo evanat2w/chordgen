@@ -1,4 +1,5 @@
 \version "2.19.25"
+\language "english"
 
 #(define-markup-command (with-flat layout props text)
    (markup?)

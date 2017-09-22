@@ -4,15 +4,14 @@
     "barres": [ "5 1 5" ],
     "frets": [
        { "string": "6", "fret": "x" },
-       { "string": "5", "fret": "5", "note": "d'", "scale_tone": "1" },
-       { "string": "4", "fret": "7", "note": "a'", "scale_tone": "5" },
-       { "string": "3", "fret": "7", "note": "d''", "scale_tone": "1" },
-       { "string": "2", "fret": "6", "note": "f''", "scale_tone": "b3" },
-       { "string": "1", "fret": "5", "note": "a''", "scale_tone": "5" }
+       { "string": "5", "fret": "5", "scale_tone": "1" },
+       { "string": "4", "fret": "7", "scale_tone": "5" },
+       { "string": "3", "fret": "7", "scale_tone": "1" },
+       { "string": "2", "fret": "6", "scale_tone": "b3" },
+       { "string": "1", "fret": "5", "scale_tone": "5" }
     ]
   }, {
     "name": "a:m",
-    "notes": "a e' a' c'' e'' a''",
     "barres": [ "6 1 5" ],
     "frets": [
        { "string": "6", "fret": "5", "scale_tone": "1" },
@@ -24,7 +23,6 @@
     ]
   }, {
     "name": "e:aug",
-    "notes": "e' gis' bis' e''",
     "barres": [ "3 2 5" ],
     "frets": [
        { "string": "6", "fret": "x" },
@@ -36,7 +34,6 @@
     ]
   }, {
     "name": "a:7",
-    "notes": "a e' g' cis'' e'' \\parenthesize g'' \\parenthesize a''",
     "barres": [ "6 1 5" ],
     "frets": [
        { "string": "6", "fret": "5", "scale_tone": "1" },
@@ -49,7 +46,6 @@
     ]
   }, {
     "name": "b:7",
-    "notes": "b fis' a' dis'' \\parenthesize fis''",
     "barres": [ "5 1 2" ],
     "frets": [
        { "string": "6", "fret": "x" },
@@ -57,11 +53,10 @@
        { "string": "4", "fret": "4", "scale_tone": "5" },
        { "string": "3", "fret": "2", "scale_tone": "b7" },
        { "string": "2", "fret": "4", "scale_tone": "3" },
-       { "string": "1", "fret": "2", "scale_tone": "1", "optional": true }
+       { "string": "1", "fret": "2", "scale_tone": "5", "optional": true }
     ]
   }, {
     "name": "c:7",
-    "notes": "\\parenthesize g \\parenthesize c' e' bes' c''",
     "frets": [
        { "string": "6", "fret": "3", "scale_tone": "5", "optional": true },
        { "string": "5", "fret": "3", "scale_tone": "1", "optional": true },
@@ -72,7 +67,6 @@
     ]
   }, {
     "name": "g:dim7",
-    "notes": "feses' bes' des'' g''",
     "frets": [
        { "string": "6", "fret": "x" },
        { "string": "5", "fret": "x" },
@@ -83,40 +77,36 @@
     ]
   }, {
     "name": "e:dim7",
-    "notes": "feses' bes' des'' g''",
     "frets": [
        { "string": "6", "fret": "x" },
        { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "bb7" },
-       { "string": "3", "fret": "3", "scale_tone": "b3" },
-       { "string": "2", "fret": "2", "scale_tone": "b5" },
-       { "string": "1", "fret": "3", "scale_tone": "1" }
+       { "string": "4", "fret": "2", "scale_tone": "1" },
+       { "string": "3", "fret": "3", "scale_tone": "b5" },
+       { "string": "2", "fret": "2", "scale_tone": "bb7" },
+       { "string": "1", "fret": "3", "scale_tone": "b3" }
     ]
   }, {
-    "name": "bes:dim7",
-    "notes": "feses' bes' des'' g''",
+    "name": "bf:dim7",
     "frets": [
        { "string": "6", "fret": "x" },
        { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "bb7" },
-       { "string": "3", "fret": "3", "scale_tone": "b3" },
-       { "string": "2", "fret": "2", "scale_tone": "b5" },
-       { "string": "1", "fret": "3", "scale_tone": "1" }
+       { "string": "4", "fret": "2", "scale_tone": "b5" },
+       { "string": "3", "fret": "3", "scale_tone": "1" },
+       { "string": "2", "fret": "2", "scale_tone": "b3" },
+       { "string": "1", "fret": "3", "scale_tone": "bb7" }
     ]
   }, {
-    "name": "cis:dim7",
-    "notes": "feses' bes' des'' g''",
+    "name": "cs:dim7",
     "frets": [
        { "string": "6", "fret": "x" },
        { "string": "5", "fret": "x" },
-       { "string": "4", "fret": "2", "scale_tone": "bb7" },
-       { "string": "3", "fret": "3", "scale_tone": "b3" },
-       { "string": "2", "fret": "2", "scale_tone": "b5" },
-       { "string": "1", "fret": "3", "scale_tone": "1" }
+       { "string": "4", "fret": "2", "scale_tone": "b3" },
+       { "string": "3", "fret": "3", "scale_tone": "bb7" },
+       { "string": "2", "fret": "2", "scale_tone": "1" },
+       { "string": "1", "fret": "3", "scale_tone": "b5" }
     ]
   }, {
     "name": "d",
-    "notes": "d' fis' a' d'' \\parenthesize fis''",
     "barres": [ "3 1 2" ],
     "frets": [
        { "string": "6", "fret": "x" },
@@ -128,7 +118,6 @@
     ]
   }, {
     "name": "d",
-    "notes": "\\parenthesize a d' a' d'' fis''",
     "barres": [ "4 2 7" ],
     "frets": [
        { "string": "6", "fret": "5", "scale_tone": "5", "optional": true },
@@ -140,7 +129,6 @@
     ]
   }, {
     "name": "d",
-    "notes": "d' a' d'' fis'' a'' \\parenthesize d'''",
     "barres": [ "6 1 10" ],
     "frets": [
        { "string": "6", "fret": "10", "scale_tone": "1" },
@@ -152,7 +140,6 @@
     ]
   }, {
     "name": "g:m7",
-    "notes": "g d' f' bes' d'' \\parenthesize g''",
     "barres": [ "6 1 3" ],
     "frets": [
        { "string": "6", "fret": "3", "scale_tone": "1" },
@@ -164,7 +151,6 @@
     ]
   }, {
     "name": "c:9",
-    "notes": "c' e' bes' d'' g''",
     "barres": [ "3 1 3" ],
     "frets": [
        { "string": "6", "fret": "x" },

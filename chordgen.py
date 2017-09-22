@@ -3,6 +3,14 @@
 import json
 import abjad
 
+string_map = { "6": 7, "5": 12, "4": 17, "3": 22, "2": 26, "1": 31 }
+
+def get_octave(fret, string, note_name):
+    note_number = string_map[string] + int(fret)
+    if note_name == "c":
+        note_number += 1
+    return "'" * int((note_number - 4) // 12.0)
+
 header_file = open("include/header.ly", "r")
 ly_header = header_file.read()
 
@@ -28,7 +36,9 @@ for chord in data["chords"]:
         chord["notes"] = ""
         scale = abjad.tonalanalysistools.Scale((str(chordparts[0]), 'major'))
         for fret in [fret for fret in chord["frets"] if fret["fret"] != "x"]:
-            chord["notes"] += "%s " % scale.scale_degree_to_named_pitch_class(str(fret["scale_tone"])).name
+            next_note = scale.scale_degree_to_named_pitch_class(str(fret["scale_tone"]))
+            paren = "\\parenthesize " if "optional" in fret else ""
+            chord["notes"] += "%s%s%s " % (paren, next_note.name, get_octave(fret["fret"], fret["string"], next_note.name))
 
     breakstr = ""
     if chordno % 10 == 0:
