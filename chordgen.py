@@ -27,26 +27,21 @@ fd = ""
 chordno = 0
 for chord in data["chords"]:
     chordno += 1
+    chord_notes = ""
+
+    # Split the chord name at the : and add a whole note duration (d:m -> d1:m)
     chordparts = chord["name"].split(":", 1)
     if len(chordparts) == 1:
         chordparts.append("")
     chrds += "  %s1:%s\n" % (chordparts[0], chordparts[1])
     
-    if "notes" not in chord:
-        chord["notes"] = ""
-        scale = abjad.tonalanalysistools.Scale((str(chordparts[0]), 'major'))
-        for fret in [fret for fret in chord["frets"] if fret["fret"] != "x"]:
-            next_note = scale.scale_degree_to_named_pitch_class(str(fret["scale_tone"]))
-            paren = "\\parenthesize " if "optional" in fret else ""
-            chord["notes"] += "%s%s%s " % (paren, next_note.name, get_octave(fret["fret"], fret["string"], next_note.name))
-
-    breakstr = ""
-    if chordno % 10 == 0:
-        breakstr = "\\break"
-
-    m += "  <%s>1%s\n" % (chord["notes"], breakstr)
+    scale = abjad.tonalanalysistools.Scale((str(chordparts[0]), 'major'))
 
     fd += "  s1^\\markup {\n    \\fret-diagram-verbose #`(\n"
+
+    if "barres" in chord:
+        for barre in chord["barres"]:
+            fd += "      (barre %s)\n" % barre
 
     for fret in chord["frets"]:
         if fret["fret"] == "x":
@@ -67,11 +62,17 @@ for chord in data["chords"]:
 
         fd += "%s #} %s %s )\n" % (fret["scale_tone"], color, paren)
 
-    if "barres" in chord:
-        for barre in chord["barres"]:
-            fd += "      (barre %s)\n" % barre
+        next_note = scale.scale_degree_to_named_pitch_class(str(fret["scale_tone"]))
+        paren = "\\parenthesize " if "optional" in fret else ""
+        chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret["fret"], fret["string"], next_note.name))
 
     fd += "  )\n}\n\n"
+
+    breakstr = ""
+    if chordno % 10 == 0:
+        breakstr = "\\break"
+
+    m += "  <%s>1%s\n" % (chord_notes, breakstr)
 
 print "%s\nchrds =\n\\chordmode {\n%s}\n\n" % (ly_header, chrds)
 print "m =\n\\absolute {\n  \\override Score.BarNumber.break-visibility = ##(#f #f #f)\n  \\clef \"treble\"\n%s}\n\n" % m 
