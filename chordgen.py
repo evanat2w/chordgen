@@ -81,7 +81,7 @@ for chord in data["chords"]:
     fd += "  )\n}\n\n"
 
     breakstr = ""
-    if chordno % 10 == 0:
+    if chordno % 8 == 0:
         breakstr = "\\break"
 
     m += "  <%s>1%s\n" % (chord_notes, breakstr)
