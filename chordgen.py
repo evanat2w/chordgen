@@ -38,7 +38,7 @@ for chord in data["chords"]:
     
     scale = abjad.tonalanalysistools.Scale((str(chordparts[0]), 'major'))
 
-    fd += "  s1^\\markup {\n    \\fret-diagram-verbose #`(\n"
+    fd += "  %%%s\n  s1^\\markup {\n    \\fret-diagram-verbose #`(\n" % chord["name"]
 
     if "barres" in chord:
         for barre in chord["barres"]:
@@ -73,9 +73,9 @@ for chord in data["chords"]:
 
     breakstr = ""
     if chordno % 8 == 0:
-        breakstr = "\\break"
+        breakstr = "\n  \\break"
 
-    m += "  <%s>1%s\n" % (chord_notes, breakstr)
+    m += "  <%s>1 %%%s%s\n" % (chord_notes, chord["name"], breakstr)
 
 print "%s\nchrds =\n\\chordmode {\n  \\set chordNameExceptions = #chExceptions\n%s}\n\n" % (ly_header, chrds)
 print "m =\n\\absolute {\n  \\override Score.BarNumber.break-visibility = ##(#f #f #f)\n  \\clef \"treble\"\n%s}\n\n" % m 
