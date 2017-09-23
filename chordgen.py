@@ -27,6 +27,11 @@ fd = ""
 
 chordno = 0
 for chord in data["chords"]:
+    if chord["name"] == "break":
+        m += "  \\break\n"
+        chordno = 0
+        continue
+
     chordno += 1
     chord_notes = ""
 
