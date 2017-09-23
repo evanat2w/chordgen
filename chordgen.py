@@ -5,11 +5,12 @@ import abjad
 
 string_map = { "6": 3, "5": 8, "4": 13, "3": 18, "2": 22, "1": 27 }
 
-def get_octave(fret, string, note_name):
+def get_octave(fret, string, note):
     note_number = string_map[str(string)] + int(fret)
-    if note_name.startswith("c") or note_name == "dff":
-        note_number += 1
-    return "'" * int(note_number // 12.0)
+    num_octaves = int(note_number // 12.0)
+    if (note.name.startswith("c") and not note.name.startswith("cs")) or (note.name == "dff"):
+        num_octaves += 1
+    return "'" * num_octaves
 
 header_file = open("include/header.ly", "r")
 ly_header = header_file.read()
@@ -75,7 +76,7 @@ for chord in data["chords"]:
             fd += "%s #} %s %s )\n" % (scale_tone, color, paren)
 
             paren = "\\parenthesize " if optional else ""
-            chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret_no, string_no, next_note.name))
+            chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret_no, string_no, next_note))
 
     fd += "  )\n}\n\n"
 
