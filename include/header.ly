@@ -17,6 +17,8 @@
 
 chExceptionMusic = {
     <c' e' gs' d''>1-\markup { "+(add9)" }
+    <c' e' gs' bf' d''>1-\markup { \super "9 #5" }
+    <g' b' d'' f'' a'' e'''>1-\markup { \super "13" }
 }
 
 chExceptions = #( append
