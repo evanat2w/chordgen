@@ -61,19 +61,10 @@ for chord in data["chords"]:
 
             next_note = scale.scale_degree_to_named_pitch_class(str(scale_tone))
 
-            fd += "      (place-fret %d %s ,#{ \\markup \\fontsize #-3 " % (string_no, fret_no)
+            color = "red " if scale_tone == "1" else ""
+            paren = "parenthesized " if optional else ""
 
-            while scale_tone[0] not in "0123456789":
-                if scale_tone.startswith("b"):
-                    fd += "\\with-flat "
-                if scale_tone.startswith("#"):
-                    fd += "\\with-sharp "
-                scale_tone = scale_tone[1:]
-
-            color = "red" if scale_tone == "1" else ""
-            paren = "parenthesized" if optional else ""
-
-            fd += "%s #} %s %s )\n" % (scale_tone, color, paren)
+            fd += "      (place-fret %d %s ,#{ \\\".%s\" #} %s%s)\n" % (string_no, fret_no, scale_tone, color, paren)
 
             paren = "\\parenthesize " if optional else ""
             chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret_no, string_no, next_note))
