@@ -54,6 +54,8 @@ for chord in data["chords"]:
         string_no -= 1
         for fret in frets.split(","):
             optional = False
+            assumed_root = False
+            color = ""
 
             if fret == "x":
                 fd += "      (mute %d)\n" % string_no
@@ -63,16 +65,25 @@ for chord in data["chords"]:
             if scale_tone.startswith("o"):
                 optional = True
                 scale_tone = scale_tone[1:]
+            if scale_tone.startswith("a"):
+                assumed_root = True
+                scale_tone = scale_tone[1:]
 
             next_note = scale.scale_degree_to_named_pitch_class(str(scale_tone))
 
-            color = "red " if scale_tone == "1" else ""
-            paren = "parenthesized " if optional else ""
+            if assumed_root:
+                color = "white default-paren-color "
+            else:
+                if scale_tone == "1":
+                    color = "red "
+
+            paren = "parenthesized " if optional or assumed_root else ""
 
             fd += "      (place-fret %d %s ,#{ \\\".%s\" #} %s%s)\n" % (string_no, fret_no, scale_tone, color, paren)
 
             paren = "\\parenthesize " if optional else ""
-            chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret_no, string_no, next_note))
+            if not assumed_root:
+                chord_notes += "%s%s%s " % (paren, next_note.name, get_octave(fret_no, string_no, next_note))
 
     fd += "  )\n}\n\n"
 
