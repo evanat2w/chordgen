@@ -75,8 +75,8 @@ def make_ly():
                 if assumed_root:
                     color = "white default-paren-color "
                 else:
-                    if scale_tone == "1":
-                        color = "red "
+                    if scale_tone != "1":
+                        color = "black "
 
                 paren = "parenthesized " if optional or assumed_root else ""
 

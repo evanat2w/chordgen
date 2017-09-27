@@ -15,6 +15,7 @@
     \override TextScript.fret-diagram-details.number-type = #'arabic
     \override TextScript.fret-diagram-details.fret-label-font-mag = 0.4
     \override TextScript.fret-diagram-details.string-label-font-mag = 0.35
+    \override TextScript.fret-diagram-details.dot-color = #'red
     \override TextScript.padding = #4
   }
 }
