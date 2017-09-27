@@ -100,4 +100,4 @@ def make_ly():
     return result
 
 if __name__ == "__main__":
-    make_ly()
+    print(make_ly())
