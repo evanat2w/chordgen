@@ -80,7 +80,10 @@ def make_ly():
 
                 paren = "parenthesized " if optional or assumed_root else ""
 
-                fd += "      (place-fret %d %s ,#{ \\\".%s\" #} %s%s)\n" % (string_no, fret_no, scale_tone, color, paren)
+                if assumed_root:
+                    fd += "      (place-fret %d %s %s%s)\n" % (string_no, fret_no, color, paren)
+                else:
+                    fd += "      (place-fret %d %s ,#{ \\\".%s\" #} %s%s)\n" % (string_no, fret_no, scale_tone, color, paren)
 
                 paren = "\\parenthesize " if optional else ""
                 if not assumed_root:
